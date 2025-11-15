@@ -242,10 +242,6 @@ Falling back to CSV export...
 ```
 **Solution:** This is normal if `openpyxl` is not installed. CSV output is generated automatically as backup.
 
-**Issue 4: UTF-8 encoding errors**
-- The program handles encoding errors automatically with `errors='ignore'`
-- If you encounter issues, ensure your HTML files are saved in UTF-8 encoding
-
 
 ## 🧠 Key Concepts Demonstrated
 
