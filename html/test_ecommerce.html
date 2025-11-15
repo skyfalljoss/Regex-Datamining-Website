@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store - Products</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="/assets/store.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            padding: 3rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .product {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .product::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .product:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .product:hover::before {
+            opacity: 1;
+        }
+
+        .product a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        .product img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product:hover img {
+            transform: scale(1.1);
+        }
+
+        .product h3 {
+            padding: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #2c3e50;
+            text-align: center;
+            background: white;
+            position: relative;
+            z-index: 3;
+        }
+
+        .specs, .videos {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .specs::before, .videos::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin-bottom: 1.5rem;
+            border-radius: 2px;
+        }
+
+        .specs h2, .videos h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .specs a, .videos a {
+            display: inline-block;
+            margin: 0.5rem 1rem 0.5rem 0;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .specs a::before, .videos a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.4s ease;
+        }
+
+        .specs a:hover, .videos a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .specs a:hover::before, .videos a:hover::before {
+            left: 100%;
+        }
+
+        .videos video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .specs, .videos {
+                padding: 1.5rem;
+            }
+
+            .specs a, .videos a {
+                display: block;
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 4;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Featured Products</h1>
+        
+        <div class="product-grid">
+            <div class="product">
+                <span class="badge">Hot Deal</span>
+                <a href="/products/laptop-123">
+                    <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=600&h=400&fit=crop" alt="Gaming Laptop">
+                    <h3>Gaming Laptop</h3>
+                </a>
+            </div>
+
+            <div class="product">
+                <span class="badge">New</span>
+                <a href="/products/phone-456">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=400&fit=crop" alt="Smartphone">
+                    <h3>Smartphone</h3>
+                </a>
+            </div>
+
+            <div class="product">
+                <span class="badge">Popular</span>
+                <a href="https://store.example.com/products/tablet">
+                    <img src="https://images.unsplash.com/photo-1561154464-82e9adf32764?w=600&h=400&fit=crop" alt="Tablet">
+                    <h3>Tablet</h3>
+                </a>
+            </div>
+        </div>
+
+        <div class="specs">
+            <h2>Documentation</h2>
+            <a href="/documents/specs.pdf">📋 Technical Specifications</a>
+            <a href="https://support.example.com/manuals/user-guide.pdf">📖 User Guide</a>
+        </div>
+
+        <div class="videos">
+            <h2>Video Resources</h2>
+            <video src="https://media.example.com/demos/product-demo.mp4" controls></video>
+            <a href="https://www.example.com/tutorials/setup.avi">🎬 Setup Tutorial</a>
+        </div>
+    </div>
+</body>
+</html>

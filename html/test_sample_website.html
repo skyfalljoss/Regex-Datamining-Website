@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Website - USF Computer Science</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdn.example.com/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #764ba2;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem 3rem;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 0.8s ease;
+        }
+
+        section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 0.8s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #764ba2;
+        }
+
+        section a {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            border: 2px solid #667eea;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        section a:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        img {
+            max-width: 100%;
+            height: 100px;
+            width: auto;
+            border-radius: 10px;
+            margin: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+           
+        }
+
+        video, audio {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to Our Website</h1>
+
+        <section>
+            <h2>Images</h2>
+            <img src="https://i.etsystatic.com/21457508/r/il/31abb9/2096806038/il_794xN.2096806038_ads4.jpg" alt="USF Logo" >
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop" alt="Team Collaboration">
+            <img src="https://thumbs.dreamstime.com/b/line-web-concept-computer-science-vector-banner-education-open-path-76284871.jpg" alt="Computer Science">
+        </section>
+
+        <section>
+            <h2>Resources</h2>
+            <a href="https://example.com/docs/manual.pdf">Download Manual (PDF)</a>
+            <a href="/downloads/presentation.pptx">View Presentation</a>
+            <a href="results/url_extraction_results_20251114_232047.xlsx">Download Report</a>
+        </section>
+
+        <section>
+            <h2>Media</h2>
+            <video src="https://videos.example.com/intro.mp4" controls></video>
+            <audio src="/media/podcast.mp3" controls></audio>
+            <a href="https://www.youtube.com/watch?v=sXQxhojSdZM">Watch on YouTube</a>
+        </section>
+
+        <section>
+            <h2>Contact</h2>
+            <a href="mailto:info@example.com">Email Us</a>
+            <a href="tel:+1234567890">Call Us</a>
+            <a href="#top">Back to Top</a>
+        </section>
+
+        <section>
+            <h2>Downloads</h2>
+            <a href="/files/archive.zip">Download Archive</a>
+            <a href="https://downloads.example.com/software.tar.gz">Download Software</a>
+        </section>
+    </main>
+
+    <footer>
+        <script src="/js/analytics.js"></script>
+        <script src="https://cdn.tracking.com/tracker.js"></script>
+    </footer>
+</body>
+</html>
